@@ -31,12 +31,12 @@ with app.app_context():
     db.session.commit()
 
     #----- add students-----
-    student1= Student(first_name="Jane", last_name="Kipkemoi", gender="Female", department="Sports")
-    student2= Student(first_name="Peter", last_name="Odhiambo", gender="Male", department="IT")
-    student3= Student(first_name="Loise", last_name="Kamau", gender="Female", department="CS")
-    student4= Student(first_name="John", last_name="Kilonzo", gender="Male", department="EE")
-    student5= Student(first_name="Robert", last_name="Mutta", gender="Male", department="IT")
-    student6= Student(first_name="Vera", last_name="Bosibori", gender="Female", department="CS")
+    student1= Student(first_name="Jane", last_name="Kipkemoi", gender="Female", department="Computer Science")
+    student2= Student(first_name="Peter", last_name="Odhiambo", gender="Male", department="Mathematics")
+    student3= Student(first_name="Loise", last_name="Kamau", gender="Female", department="Economics")
+    student4= Student(first_name="John", last_name="Kilonzo", gender="Male", department="Education")
+    student5= Student(first_name="Robert", last_name="Mutta", gender="Male", department="Information Science")
+    student6= Student(first_name="Vera", last_name="Bosibori", gender="Female", department="Engineering")
     db.session.add_all([student1, student2, student3, student4, student5, student6])
 
     db.session.commit()
