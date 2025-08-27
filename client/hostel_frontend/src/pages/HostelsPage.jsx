@@ -37,4 +37,4 @@ function HostelsPage(){
     );
 }
 
-export default HostelPage;
+export default HostelsPage;
