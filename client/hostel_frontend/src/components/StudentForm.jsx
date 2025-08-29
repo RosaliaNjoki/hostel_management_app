@@ -33,16 +33,16 @@ const StudentForm =({ onSubmit })=>{
                 name="last_name"
                 placeholder="Last Name"
                 value={formData.last_name}
-                onChnge={handleChange}
+                onChange={handleChange}
                 require
             />
             <select 
                 name="gender"
                 value={formData.gender}
-                onchange={handleChange}
+                onChange={handleChange}
                 required
             >
-                <option value="">Select Gender</option>
+                <option value="" disabled>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
 
@@ -53,7 +53,7 @@ const StudentForm =({ onSubmit })=>{
                 onChange={handleChange}
                 required
             >
-                <option value = "" disabled>Select Your Department </option>
+                <option value = "" disabled>Select your department </option>
                 <option value = "Computer Science ">Computer Science </option>
                 <option value = "Mathematics" >Mathematics </option>
                 <option value = "Economics" >Economics </option>

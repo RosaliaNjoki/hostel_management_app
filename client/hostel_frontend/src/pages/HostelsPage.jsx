@@ -1,34 +1,35 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import HostelForm from "../components/HostelForm";
+import "./Page.css";
 
-function HostelsPage(){
+const HostelsPage = () => {
     const [hostels, setHostels] = useState([]);
-    const [form, setForm] = useState({ hostel_name: "", hostel_capacity: ""});
+    
 
-    useEffect(()=> { fetchHostels(); }, []);
+    useEffect(()=> { 
+        fetch("http://127.0.0.1:5000/hostels")
+            .then((res)=>res.json())
+            .then((data) => setHostels(data))
+            .catch((err)=>console.error("Error fetching hostels:", err));
+    }, []);
 
-    const fetchHostels = async ()=>{
-        const res = await azios.get("http://127.0.0.1:5000/hostels");
-        setHostels(res.data);
+    const handleAddHostel = (newHostel)=>{
+        fetch("http://127.0.0.1:5000/hostels", {
+            method: "POST",
+            header: { "Content-Type": "application/json" },
+            body: JSON.stringify(newHostel),
+        })
+            .then((res) => res.json())
+            .then((hostel) => setHostels([...hostels,hostel]));
     };
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        await axios.post("http://127.0.0.1:5000/hostels", form);
-        setForm({hostel_name: "", hostel_capacity: ""});
-        fetchHostels();
-    };
 
     return(
-        <div>
-           <h2>Hostels</h2> 
-           <form onSubmit ={handleSubmit}>
-            <input placeholder = "Hostel Name" value={form.hostel_name} onChange = {(e)=> setForm({...form, hostel_name: e.target.value })} />
-            <input type = "number" placeholder = "Capacity" value = {form.hostel_capacity} onChange={(e)=> setForm({...form, hostel_capacity: e.target.value})}/>
-            <button type = "submit">Add Hostel</button>
-            </form>
+        <div className="page">
+           <h1>Hostels</h1> 
+           <HostelForm onSubmit ={handleAddHostel} />
 
-            <ul>
+            <ul className = 'list'>
                 {hostels.map((h)=>(
                     <li key={h.hostel_id}>{h.hostel_name} (Capacity: {h.hostel_capacit})</li>
                 ))}
