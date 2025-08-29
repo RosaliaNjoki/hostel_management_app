@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import StudentsPage from "./pages/StudentsPage";
 import HostelsPage from "./pages/HostelsPage";
 import RoomsPage from "./pages/RoomsPage";
-import AllocationsPage from "./pages/AlloctionsPage";
+import AllocationsPage from "./pages/AllocationsPage";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<StudentsPage />} />
           <Route path="/hostels" element={<HostelsPage />} />
           <Route path="/rooms" element={<RoomsPage />} />
-          <Route path="allocations" element={<AllocationsPage />} />
+          <Route path="/allocations" element={<AllocationsPage />} />
         </Routes>
       </div>
     </Router>

@@ -24,13 +24,13 @@ function AllocationsPage() {
             <h2>Allocations</h2>
             <form onSubmit = {handleSubmit}>
                 <input placeholder="Student ID" value={form.student_id} onChange={(e)=>setForm({...form, student_id: e.target.value })}/>
-                <input placeholder="Hostel ID" value={form.hostel_id} onChange={(e)=>setForm({...form, hostel_id: e.targetvalue })}/>
+                <input placeholder="Hostel ID" value={form.hostel_id} onChange={(e)=>setForm({...form, hostel_id: e.target.value })}/>
                 <input placeholder="Room ID" value={form.room_id} onChange={(e)=>setForm({...form, room_id: e.target.value })}/>
                 <button type="submit">Allocate</button>
             </form>
             <ul>
                 {allocations.map((a)=>
-                <li key={a.allocation_id}>Student{a.student_id}, Hostel {a.hostel_id}, Room {a.room_id}</li>
+                <li key={a.allocation_id}>Student{a.student_id}, Hostel{a.hostel_id}, Room{a.room_id}</li>
                 )}
             </ul>
         </div>
