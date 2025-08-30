@@ -8,6 +8,15 @@ const StudentForm =({ onSubmit })=>{
         gender: "",
         department:"",
     });
+    const departments = [
+        'Computer Science',
+        'Information Science', 
+        "Economics",
+        "Engineering", 
+        "Education",
+        "Mathematics"
+    
+    ];
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value });
@@ -54,7 +63,7 @@ const StudentForm =({ onSubmit })=>{
                 required
             >
                 <option value = "" disabled>Select your department </option>
-                {department.map((dept, index)=>(
+                {departments.map((dept, index)=>(
                     <option key={index} value={dept}>{dept}</option>
                 ))}
         
