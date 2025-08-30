@@ -1,42 +1,39 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import RoomForm from "../components/RoomForm";
+import "./Page.css";
 
-function RoomsPage() {
+const RoomsPage =()=>{
     const [rooms, setRooms] = useState([]);
-    const [form, setForm] = useState({ room_number: "", room_capapcity:"", hostel_id: "" });
-    
-    useEffect(() =>{ fetchRooms(); },[]);
-    
-    const fetchRooms = async () => {
-        const res = await axios.get("http://127.0.0.1:5000/rooms");
-        setRooms(res.data);
-            
+        
+    useEffect(() =>{ 
+        fetch("http://127.0.0.1:5000/rooms")
+            .then((res) => res.json())
+            .then((data) => setRooms(data))
+            .catch((err)=> console.error("Error fetching rooms:", err));
+  
+    }, []);
+
+    const handleAddRoom = (newRoom)=> {
+        fetch("http://127.0.0.1:5000/rooms", {
+            method: "POST",
+            headers: { "Content-Type": "appliction/json" },
+            body: JSON.stringify(newRoom),
+        })
+            .then((res) => res.json())
+            .then((room)=> setRooms([...rooms, room]))
     };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await axios.post("http://127.0.0.1:5000/rooms", form);
-        setForm({room_number: "", room_capacity: "", hostel_id: ""});
-        fetchRooms();
-    }
-    
-
-    return (
-        <div>
-            <h2>Rooms</h2>
-            <form onSubmit = {handleSubmit}>
-                <input placeholder="Room Number" value={form.room_number} onChange = {(e)=> setForm({...form, room_number: e.target.value})}/>
-                <input type="number" placeholder="Capacity" value={form.room_capacity} onChange= {(e)=> setForm({...form, room_capacity: e.target.value })} />
-                <button type="submit">Add Hostel</button> 
-            </form>
-
-            <ul>
+    return(
+        <div className="Page">
+            <h1>Rooms</h1>
+            <RoomForm onSubmit={handleAddRoom} />
+                   
+            <ul className="list">
                 {rooms.map((r)=>(
-                    <li key={r.room_id}>Room {r.room_number} (capacity:{r.room_capacity}) in Hostel {r.hostel_id}</li>
+                    <li key={r.room_id}>Room {r.room_number} (Capacity:{r.room_capacity}) - Hostel {r.hostel_id}</li>
                 ))}
             </ul>
         </div>
     );
-}    
+};    
 
 export default RoomsPage;

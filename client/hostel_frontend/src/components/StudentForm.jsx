@@ -54,12 +54,9 @@ const StudentForm =({ onSubmit })=>{
                 required
             >
                 <option value = "" disabled>Select your department </option>
-                <option value = "Computer Science ">Computer Science </option>
-                <option value = "Mathematics" >Mathematics </option>
-                <option value = "Economics" >Economics </option>
-                <option value = "Education" > Education </option>
-                <option value = "Information Science" >Information Science </option>
-                <option value = "Engineering"> Engineering </option>
+                {department.map((dept, index)=>(
+                    <option key={index} value={dept}>{dept}</option>
+                ))}
         
             </select>    
             <button type="submit">Add Student</button>
