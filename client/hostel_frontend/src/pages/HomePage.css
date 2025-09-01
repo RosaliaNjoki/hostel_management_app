@@ -1,0 +1,48 @@
+.layout {
+    display: flex;
+}
+.homepage {
+    margin-left: 220px; /*make space for sidebar*/
+    width: calc(100%-220px);
+    text-align: center;
+    font-family: Arial, san-serief;
+    padding-bottom: 40px;
+
+}
+
+.homepage-header{
+    padding: 20px;
+    background: #34495e;
+    color: #ecf0f1;
+    border-radius: 6px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.banner {
+    margin: 20px 0;
+}
+.banner-image{
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.info-section{
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-section h2{
+    color: #2c3e50;
+}
+.info-section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}

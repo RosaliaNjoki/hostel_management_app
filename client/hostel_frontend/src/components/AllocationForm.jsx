@@ -32,7 +32,7 @@ const AllocationForm =({ onSubmit })=>{
                 onChange={handleChange}
                 required
             >
-                <option value=''diseabled>Select Student</option>
+                <option value=''disabled>Select Student</option>
                 {students.map((s)=>(
                     <option key={s.id} value={s.id}>{s.name}</option>
                 ))}
@@ -44,7 +44,7 @@ const AllocationForm =({ onSubmit })=>{
                 onChange={handleChange}
                 required
             >
-                <option value = "" diseabled>Select Hostel</option>
+                <option value = "" disabled>Select Hostel</option>
                 {hostels.map((h)=>(
                     <option key={h.id} value={h.id}>{h.name}</option>
                 ))}
@@ -55,7 +55,7 @@ const AllocationForm =({ onSubmit })=>{
                 onChange={handleChange}
                 required
             >
-                <option value="" diseabled > Select Room</option>
+                <option value="" disabled > Select Room</option>
                 {rooms.map((r)=>(
                     <option key ={r.id} value={r.id}>Room {r.number}</option>
                 ))}

@@ -1,6 +1,7 @@
+import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import StudentsPage from "./pages/StudentsPage";
 import HostelsPage from "./pages/HostelsPage";
 import RoomsPage from "./pages/RoomsPage";
@@ -14,12 +15,13 @@ function App() {
       <Navbar />
       <div className="container" style={{padding: "20px"}}>
         <Routes>
-          <Route path="/" element={<StudentsPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/students" element={<StudentsPage />} />
           <Route path="/hostels" element={<HostelsPage />} />
           <Route path="/rooms" element={<RoomsPage />} />
           <Route path="/allocations" element={<AllocationsPage />} />
         </Routes>
-        <Footer />
+       
       </div>
     </Router>
   );
