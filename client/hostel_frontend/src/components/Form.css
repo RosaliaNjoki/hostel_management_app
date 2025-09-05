@@ -7,17 +7,24 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background: #f4f6f8;
+  padding: 20px;
+}
 form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 28px;
+  padding: 30px;
   max-width: 420px;
-  width: 100%;
+  width: 90%;
   background: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 14px;
+  border-radius: 20;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   animation: fadeIn 0.4s ease-in-out;
 }
@@ -31,7 +38,7 @@ form h2 {
 
 input, select {
   padding: 12px 14px;
-  border: 1px solid #ccc;
+  border: 5px solid #ccc;
   border-radius: 8px;
   font-size: 15px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;

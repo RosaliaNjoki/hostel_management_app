@@ -23,11 +23,11 @@ const RoomsPage =()=>{
             .then((room)=> setRooms([...rooms, room]))
     };
     return(
-        <div className="Page">
-            <h1>Rooms</h1>
+        <div className="page">
+            <h1 >Rooms</h1>
             <RoomForm onSubmit={handleAddRoom} />
                    
-            <ul className="list">
+            <ul className= 'list'>
                 {rooms.map((r)=>(
                     <li key={r.room_id}>Room {r.room_number} (Capacity:{r.room_capacity}) - Hostel {r.hostel_id}</li>
                 ))}

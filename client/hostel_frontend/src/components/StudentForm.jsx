@@ -29,7 +29,7 @@ const StudentForm =({ onSubmit })=>{
     };
 
     return (
-        <form onSubmit = {handleSubmit}>
+        <form className="form-container" onSubmit = {handleSubmit}>
             <h2>Add Student</h2>
             <input 
                 name="first_name"

@@ -24,7 +24,7 @@ const AllocationForm =({ onSubmit })=>{
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
             <h2>Allocate Room</h2>
             <select
                 name="student_id"

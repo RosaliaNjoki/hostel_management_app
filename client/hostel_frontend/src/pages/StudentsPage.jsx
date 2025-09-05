@@ -25,7 +25,7 @@ const StudentsPage=()=>{
     };
 
     return(
-        <div>
+        <div className="page">
             <h1>Students</h1>
             <StudentForm onSubmit={handleAddStudent} />
             <ul className="list">

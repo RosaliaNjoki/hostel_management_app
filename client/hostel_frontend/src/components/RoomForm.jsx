@@ -21,7 +21,7 @@ const RoomForm = ({ onSubmit})=>{
         setformData({ room_number: "", room_capacity: "", hostel_id:"" });
     };
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
             <h2>Add Room</h2>
             <input
                 name="room_number"
